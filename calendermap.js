@@ -14,7 +14,7 @@ var color = d3.scale.linear().range(["white", '#002b53'])
     .domain([0, 1])
     
 var svg = d3.select(".calender-map").selectAll("svg")
-    .data(d3.range(2012, 2017))
+    .data(d3.range(2012, 2018))
   .enter().append("svg")
     .attr("width", '100%')
     .attr("data-height", '0.5678')
@@ -83,7 +83,7 @@ d3.csv("data.csv", function(error, csv) {
 	
  rect.filter(function(d) { return d in data; })
       .attr("fill", function(d) { return color(data[d]); })
-	  .attr("data-title", function(d) { return "value : "+Math.round(data[d]*100)});   
+	  .attr("data-title", function(d) { return "value : "+d.Comparison_Type)});   
 	$("rect").tooltip({container: 'body', html: true, placement:'top'}); 
 });
 
