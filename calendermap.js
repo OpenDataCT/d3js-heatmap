@@ -81,9 +81,9 @@ d3.csv("data.csv", function(error, csv) {
     .rollup(function(d) { return  Math.sqrt(d[0].Comparison_Type / Comparison_Type_Max); })
     .map(csv);
 	
- rect.filter(function(d) { return d in data; })
+rect.filter(function(d) { return d in data; })
       .attr("fill", function(d) { return color(data[d]); })
-	  .attr("data-title", function(d) { return "value : "+d.Comparison_Type)});   
+	  .attr("data-title", function(d) { return "value : "+Math.round(data[d]*100)});   
 	$("rect").tooltip({container: 'body', html: true, placement:'top'}); 
 });
 
