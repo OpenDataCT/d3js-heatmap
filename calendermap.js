@@ -14,7 +14,7 @@ var color = d3.scale.linear().range(["white", '#002b53'])
     .domain([0, 1])
     
 var svg = d3.select(".calender-map").selectAll("svg")
-    .data(d3.range(2012, 2018))
+    .data(d3.range(2012, 2019))
   .enter().append("svg")
     .attr("width", '100%')
     .attr("data-height", '0.5678')
@@ -68,7 +68,7 @@ svg.selectAll(".month")
     .attr("id", function(d,i){ return month[i] })
     .attr("d", monthPath);
 
-d3.csv("data.csv", function(error, csv) {
+d3.csv("https://data.ct.gov/resource/eaai-6ha4.csv", function(error, csv) {
 
   csv.forEach(function(d) {
     d.Comparison_Type = parseInt(d.Comparison_Type);
